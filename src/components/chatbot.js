@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import stringSimilarity from "string-similarity";
+import '../App.css';
 
 const mlModels = {
   "Skin Cancer Diagnostic": ["skin cancer", "melanoma", "psoriasis"],
@@ -10,15 +11,15 @@ const mlModels = {
 };
 
 const TileName = {
-    "Skin Cancer Diagnostic": "Skincancerml",
-    "Skin Cancer" : "skin-cancer-upload",
-    "Dementia Detection" : "Dementia",
-    "Second Dementia Detection" : "dementiaDetection"  
+  "Skin Cancer Diagnostic": "Skincancerml",
+  "Skin Cancer": "skin-cancer-upload",
+  "Dementia Detection": "Dementia",
+  "Second Dementia Detection": "dementiaDetection"
 }
 
 const Chatbot = () => {
   const [userInput, setUserInput] = useState("");
-  const [chatHistory, setChatHistory] = useState([]);
+  const [chatHistory, setChatHistory] = useState([{text: "Hey there! Type a disease that you want to diagnose and I shall list all the available models!"}]);
   const navigate = useNavigate();
 
 
@@ -48,54 +49,61 @@ const Chatbot = () => {
   };
 
 
-const handleInput = async () => {
+  const handleInput = async () => {
     const input = userInput.toLowerCase();
     const matchingModels = findModelsForDisease(input);
 
     const delay = (delayInms) => {
-        return new Promise(resolve => setTimeout(resolve, delayInms));
-      };
-
-    if (mlModels[userInput]) {
-        // If the input matches a model, navigate directly
-        setChatHistory([...chatHistory, { user: userInput, bot: `Navigating to ${userInput}...` }]);
-        let del = await delay(2000)
-        navigate(`/${TileName[userInput]}`);
-    } else if (matchingModels.length > 0) {
-        // If matching models are found, suggest them
-        setChatHistory([
-        ...chatHistory,
-        { user: userInput, bot: `Models related to your search: ${matchingModels.join(", ")}` },
-        ]);
-    } else {
-        setChatHistory([...chatHistory, { user: userInput, bot: "No related models found. Try again!" }]);
-    }
-    setUserInput("");
+      return new Promise(resolve => setTimeout(resolve, delayInms));
     };
 
-    return (
-        <div className="p-4 border rounded shadow-lg max-w-md mx-auto">
-          <h2 className="text-lg font-bold mb-2">Chatbot</h2>
-          <div className="mb-2 h-40 overflow-y-auto border p-2">
-            {chatHistory.map((entry, index) => (
-              <div key={index}>
-                <p><strong>You:</strong> {entry.user}</p>
-                <p><strong>Bot:</strong> {entry.bot}</p>
-              </div>
-            ))}
-          </div>
-          <input
-            type="text"
-            className="border p-2 w-full"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            placeholder="Ask me about disease detection models..."
-          />
-          <button className="mt-2 bg-blue-500 text-white p-2 rounded w-full" onClick={handleInput}>
-            Submit
-          </button>
-        </div>
-      );
+    if (mlModels[userInput]) {
+      // If the input matches a model, navigate directly
+      setChatHistory([...chatHistory, { text: userInput, side: "right"}, { text: `Navigating to ${userInput}...`, side: "left" }]);
+      let del = await delay(2000)
+      navigate(`/${TileName[userInput]}`);
+    } else if (matchingModels.length > 0) {
+      // If matching models are found, suggest them
+      setChatHistory([
+        ...chatHistory,
+        { text: userInput, side: "right" } , {text: `Models related to your search: ${matchingModels.join(", ")}`, side: "left" },
+      ]);
+    } else {
+      setChatHistory([...chatHistory, { text: userInput, side: "right" }, { text: "No related models found. Try again!", side: "left" }]);
     }
+    setUserInput("");
+  };
+
+
+  return (
+    <div className="chat-parent">
+      <h2 className="">AI Diagnosis Chatbot</h2>
+      <div className="chat-container">
+        {chatHistory.map((entry) => (
+            <div className={entry.side === "right" ? "userBox" : "botBox"}>
+              <strong>{entry.side === "right" ? "You: " : "Assistant: "}</strong> {entry.text}
+            </div>
+        ))}
+      </div>
+      <br></br>
+      <div className="input-box">
+        <input
+          type="text"
+          className="custom-input"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          placeholder="Ask about a disease..."
+        />
+        <div style={{paddingLeft: "5px"}}></div>
+        <button
+          className="custom-button"
+          onClick={handleInput}
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default Chatbot;

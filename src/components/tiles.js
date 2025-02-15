@@ -8,6 +8,11 @@ function Home() {
     return (
       <div className="p-6">
         <Chatbot />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <div className="flex gap-4 justify-center mt-4">
           <div className="cursor-pointer" onClick={() => navigate("/tile-a")}>
             <TileA />
