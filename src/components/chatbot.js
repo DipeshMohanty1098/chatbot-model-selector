@@ -7,14 +7,61 @@ const mlModels = {
   "Skin Cancer Diagnostic": ["skin cancer", "melanoma", "psoriasis"],
   "Skin Cancer": ["skin cancer", "melanoma", "psoriasis"],
   "Dementia Detection": ["dementia"],
-  "Second Dementia Detection": ["dementia"]
+  "Second Dementia Detection": ["dementia"],
+  "Chronic Kidney": ["kidney", "renal", "ckd", "dialysis", "nephritis", "proteinuria", "kidney failure"],
+  "Kidney Stone Diagnosis": ["kidney stone", "renal stone", "nephrolithiasis", "urolithiasis", "calcium oxalate", "uric acid stone", "bladder stone"],
+  "Chronic Kidney Disease Diagnosis":["kidney", "renal", "ckd", "dialysis", "nephritis", "proteinuria", "kidney failure"],
+  "Kidney Failure Predication": ["kidney", "renal", "ckd", "dialysis", "nephritis", "proteinuria", "kidney failure"],
+  "Thyroid Disease Detection": ["thyroid", "hypothyroidism", "hyperthyroidism", "goiter", "hashimoto", "graves", "hormone imbalance"],
+  "Thyroid Prediction": ["thyroid", "hypothyroidism", "hyperthyroidism", "goiter", "hashimoto", "graves", "hormone imbalance"],
+  "Liver Disease Diagnosis": ["liver", "hepatic", "cirrhosis", "jaundice", "fatty liver", "hepatitis"],
+  "Alzheimer's Disease Risk Assessment": ["brain", "memory", "dementia", "cognitive", "alzheimers", "neurodegenerative"],
+  "Pulmonary Disease Detection": ["lung", "pulmonary", "respiratory"],
+  "Insomnia Prediction": ["insomnia", "sleep disorder", "sleeplessness", "sleep deprivation", "sleep apnea", "restless sleep", "difficulty sleeping", "chronic insomnia"],
+  "Second Brain Stroke Prediction": ["brain", "tumor", "cerebrovascular", "ischemia", "TIA", "hemorrhage", "clot", "aneurysm", "neurovascular", "artery blockage", "hypertension", "atrial fibrillation", "blood pressure", "neurological symptoms"],
+  "Brain Stroke Prediction": ["brain", "tumor", "cerebrovascular", "ischemia", "TIA", "hemorrhage", "clot", "aneurysm", "neurovascular", "artery blockage", "hypertension", "atrial fibrillation", "blood pressure", "neurological symptoms"],
+  "Brain Anomalies": ["brain", "tumor", "cerebrovascular", "ischemia", "TIA", "hemorrhage", "clot", "aneurysm", "neurovascular", "artery blockage", "hypertension", "atrial fibrillation", "blood pressure", "neurological symptoms"],
+  "Heart Failure Prediction": ["heart", "shortness of breath", "edema", "chest pain", "coronary artery disease", "cardiomyopathy", "arrhythmia", "irregular heartbeat"],
+  "Heart Stroke": ["heart", "shortness of breath", "edema", "chest pain", "coronary artery disease", "cardiomyopathy", "arrhythmia", "irregular heartbeat"],
+  "Heart Diagnostic": ["heart", "shortness of breath", "edema", "chest pain", "coronary artery disease", "cardiomyopathy", "arrhythmia", "irregular heartbeat"],
+  "Heart Disease(Arrhythmia)": ["heart", "shortness of breath", "edema", "chest pain", "coronary artery disease", "cardiomyopathy", "arrhythmia", "irregular heartbeat"],
+  "Heart Disease(CAD) Predication": ["heart", "shortness of breath", "edema", "chest pain", "coronary artery disease", "cardiomyopathy", "arrhythmia", "irregular heartbeat"],
+  "Heart Anomalies": ["heart", "shortness of breath", "edema", "chest pain", "coronary artery disease", "cardiomyopathy", "arrhythmia", "irregular heartbeat"],
+  "Cervical Cancer Prediction": ["cervical","cervix", "dysplasia", "vaginal bleeding"],
+  "Breast Disease Diagnosis": ["breast",  "malignant", "benign", "mammogram", "biopsy", "lump", "mastectomy", "metastasis", "breast tissue"],
+  "Breast Cancer Diagnosis": ["breast",  "malignant", "benign", "mammogram", "biopsy", "lump", "mastectomy", "metastasis", "breast tissue"],
+  "Breast Cancer Prediction": ["breast",  "malignant", "benign", "mammogram", "biopsy", "lump", "mastectomy", "metastasis", "breast tissue"]
 };
 
 const TileName = {
   "Skin Cancer Diagnostic": "Skincancerml",
   "Skin Cancer": "skin-cancer-upload",
   "Dementia Detection": "Dementia",
-  "Second Dementia Detection": "dementiaDetection"
+  "Second Dementia Detection": "dementiaDetection",
+  "Chronic Kidney": "chronicKidney",
+  "Kidney Stone Diagnosis": "kidneystoneml",
+  "Chronic Kidney Disease Diagnosis": "chronickidneyml",
+  "Kidney Failure Predication": "KidneyFailure",
+  "Thyroid Disease Detection": "thyroidDiseaseml",
+  "Thyroid Prediction": "thyroidPrediction",
+  "Liver Disease Diagnosis": "liverdiseaseML",
+  "Alzheimer's Disease Risk Assessment": "alzheimer",
+  "Pulmonary Disease Detection": "pulmonaryDiseaseML",
+  "Insomnia Predication": "insomnia",
+  "Second Brain Stroke Prediction": "BrainStrokePred",
+  "Brain Stroke Prediction": "brainstroke",
+  "Brain Anomalies": "brainAnomalies",
+  "Heart Failure Prediction": "heartfailure",
+  "Heart Stroke": "heartstroke",
+  "Heart Diagnostic": "Heartdiseaseml",
+  "Heart Disease(Arrhythmia)": "heart-disease",
+  "Heart Disease(CAD) Predication": "heartDisease",
+  "Heart Anomalies": "heartAnomalies",
+  "Cervical Cancer Prediction": "cervical-cancer-prediction",
+  "Breast Disease Diagnosis": "BreastDisease",
+  "Breast Cancer Diagnosis": "breastcancerml",
+  "Breast Cancer Prediction": "breastcancerpredictionml"
+
 }
 
 const Chatbot = () => {
