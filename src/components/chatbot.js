@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import stringSimilarity from "string-similarity";
-import '../App.css';
+import './chatbotstyles.css';
 
 const mlModels = {
-  "Skin Cancer Diagnostic": ["skin cancer", "melanoma", "psoriasis"],
-  "Skin Cancer": ["skin cancer", "melanoma", "psoriasis"],
+  "Skin Cancer Diagnostic": ["skin cancer", "melanoma", "psoriasis", "skin"] ,
+  "Skin Cancer": ["skin cancer", "melanoma", "psoriasis", "skin"],
   "Dementia Detection": ["dementia"],
   "Second Dementia Detection": ["dementia"],
   "Chronic Kidney": ["kidney", "renal", "ckd", "dialysis", "nephritis", "proteinuria", "kidney failure"],
