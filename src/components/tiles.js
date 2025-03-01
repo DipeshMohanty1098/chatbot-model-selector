@@ -14,12 +14,12 @@ function Home() {
         <br></br>
         <br></br>
         <div className="flex gap-4 justify-center mt-4">
-          <div className="cursor-pointer" onClick={() => navigate("/tile-a")}>
+          {/*<div className="cursor-pointer" onClick={() => navigate("/tile-a")}>
             <TileA />
           </div>
           <div className="cursor-pointer" onClick={() => navigate("/tile-b")}>
             <TileB />
-          </div>
+          </div>*/}
         </div>
       </div>
     );
