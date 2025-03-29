@@ -138,7 +138,7 @@ const Chatbot = () => {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:11500/api/generate", {
+      const response = await fetch("https://document-anne-commitment-although.trycloudflare.com/api/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -236,7 +236,6 @@ const Chatbot = () => {
     };
 
     try {
-      console.log(base64);
       setChatHistory([...chatHistory, {image: fullUrl, side: "right"}])
       const res = await fetch("http://127.0.0.1:11500/api/generate", {
         method: "POST",
